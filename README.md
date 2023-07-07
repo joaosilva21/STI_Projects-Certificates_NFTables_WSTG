@@ -13,13 +13,13 @@ This project developed for Information Tecnology Security subject @University of
 Consists in develop a group of projects related with Information Tecnology Security using some activities and technologies like certificates and openvpn; nftables; webapplication analysis
 
 ## Technologies used:
-1. [OpenSSL(PA1)](https://www.openssl.org)
-2. [OpenVPN(PA1)](https://openvpn.net/vpn-server-resources/connecting-to-access-server-with-linux/)
-3. [NFTables(PA2)](https://wiki.nftables.org/wiki-nftables/index.php/Main_Page)
-4. [Suricata(PA2)](https://suricata.io/download/)
-5. [Juice-Shop(PA3)](https://github.com/juice-shop/juice-shop)
-6. [OWASP ZAP(PA3)](https://www.zaproxy.org/download/)
-7. [Burp Suite(PA3)](https://portswigger.net/burp/communitydownload)
+1. [OpenSSL](https://www.openssl.org)(PA1)
+2. [OpenVPN](https://openvpn.net/vpn-server-resources/connecting-to-access-server-with-linux/)(PA1)
+3. [NFTables](https://wiki.nftables.org/wiki-nftables/index.php/Main_Page)(PA2)
+4. [Suricata](https://suricata.io/download/)(PA2)
+5. [Juice-Shop](https://github.com/juice-shop/juice-shop)(PA3)
+6. [OWASP ZAP](https://www.zaproxy.org/download/)(PA3)
+7. [Burp Suite](https://portswigger.net/burp/communitydownload)(PA3)
 
 
 ## Notes important to read:
