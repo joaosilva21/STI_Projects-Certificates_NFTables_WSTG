@@ -11,7 +11,7 @@
 Do some testing on the famous vulnerable webapplication, Juice Shop using OWASP ZAP and other tools, following the WSTG created by OWASP. After that implement a webapplication firewall in order to minimize some problems/vulnerabilities on the Juice Shop.
 
 ## To run this project:
-You will need 1 VM (2 if you want to use 1 VM Kali to do the tests) to create the scenario presented. It's recommended to read the report (unfortunately for you is in portuguese .-.).
+You will need 1 VM to host the Juice Shop (2 if you want to use 1 VM Kali to do the tests) to create the scenario presented. It's recommended to read the report (unfortunately for you is in portuguese .-.). You can simply put the files in your VMs like they are in this repository
 
 ## Notes important to read
 - To understand what are and how the commands work see the statement and the report files
