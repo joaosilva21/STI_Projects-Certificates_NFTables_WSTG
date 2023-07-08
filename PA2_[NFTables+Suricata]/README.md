@@ -8,7 +8,7 @@
 - [Notes important to read](#notes-important-to-read)
 
 ## Description:
-Configuration of a firewall (type: packet filter) using NFTables to limit the access to some services in some VMs (networks). After that it's requested to configures an IDS/IPS, in our case we choose Suricata. This mechanisms must be able to block SQL Injection and DoS attacks
+Configuration of a firewall (type: packet filter) using NFTables to limit the access to some services in some VMs (networks). After that it's requested to configure an IDS/IPS, in our case we choose Suricata. This mechanism must be able to block SQL Injection and DoS attacks
 
 ## To run this project:
 You will need 4 VMs to create the scenario presented. It's recommended to read the report (unfortunately for you is in portuguese .-.).
