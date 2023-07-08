@@ -1,0 +1,6 @@
+V	240310225145Z		01	unknown	/C=PT/ST=Coimbra/O=UC/OU=DEI/CN=[Coimbra]:OCSP/emailAddress=coimbra@mail.com
+V	240310225145Z		02	unknown	/C=PT/ST=Coimbra/O=UC/OU=DEI/CN=[Coimbra]:Local/emailAddress=coimbra@mail.com
+V	240310225145Z		03	unknown	/C=PT/ST=Coimbra/O=UC/OU=DEI/CN=[Warrior]:Local/emailAddress=warrior@mail.com
+V	240310225145Z		04	unknown	/C=PT/ST=Coimbra/O=UC/OU=DEI/CN=[Lisboa]:Local/emailAddress=lisboa@mail.com
+V	240310225146Z		05	unknown	/C=PT/ST=Coimbra/O=UC/OU=DEI/CN=[Lisboa]:Apache/emailAddress=lisboa@mail.com
+V	240310225146Z		06	unknown	/C=PT/ST=Coimbra/O=UC/OU=DEI/CN=[Lisboa]:Apache_User/emailAddress=lisboa@mail.com

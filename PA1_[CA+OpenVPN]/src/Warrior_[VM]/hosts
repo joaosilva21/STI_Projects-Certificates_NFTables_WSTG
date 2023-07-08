@@ -1,0 +1,7 @@
+127.0.0.1  localhost
+::1        localhost ip6-localhost ip6-loopback
+ff02::1    ip6-allnodes
+ff02::2    ip6-allrouters
+# This host address
+10.10.0.6       apache_stipl1.pt
+192.168.172.20  ocsp_stipl1.pt

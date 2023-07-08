@@ -1,0 +1,97 @@
+Certificate:
+    Data:
+        Version: 3 (0x2)
+        Serial Number: 4 (0x4)
+        Signature Algorithm: sha256WithRSAEncryption
+        Issuer: C=PT, ST=Coimbra, L=Coimbra, O=UC, OU=DEI, CN=[Coimbra]:CA/emailAddress=coimbra@mail.com
+        Validity
+            Not Before: Mar 11 22:51:45 2023 GMT
+            Not After : Mar 10 22:51:45 2024 GMT
+        Subject: C=PT, ST=Coimbra, O=UC, OU=DEI, CN=[Lisboa]:Local/emailAddress=lisboa@mail.com
+        Subject Public Key Info:
+            Public Key Algorithm: rsaEncryption
+                Public-Key: (2048 bit)
+                Modulus:
+                    00:cd:48:0d:9e:f1:ae:d3:b4:d3:d1:5a:ca:d7:36:
+                    6f:1b:f1:cc:c3:72:c3:0f:43:ca:b4:54:66:51:55:
+                    c6:a7:ca:5f:60:b7:0a:07:43:8e:d5:89:de:84:70:
+                    b7:13:22:b4:5a:13:79:0a:e6:a3:d1:40:98:67:fd:
+                    60:17:28:97:c9:e9:bf:30:3a:77:68:ab:6a:60:96:
+                    2d:c8:0c:19:1b:d1:35:f1:2b:90:81:b6:af:f2:11:
+                    a2:c6:9b:20:5b:98:8a:13:bd:e1:2b:d4:a7:e0:d2:
+                    bb:f2:44:85:54:48:18:a2:7d:3f:33:6f:97:74:be:
+                    f2:27:af:08:f2:62:33:ac:f0:c1:f9:20:e5:ad:3b:
+                    c1:07:c6:7e:1c:97:e1:0e:e9:44:46:d2:96:5b:f4:
+                    43:cb:1c:53:06:d4:1b:19:db:58:0d:96:67:24:cc:
+                    8a:ba:31:fd:35:3d:18:cb:24:83:3e:88:56:13:eb:
+                    db:2a:e7:bc:15:80:05:3a:31:cb:5d:3c:a3:52:5b:
+                    3a:7b:1e:f3:0d:b5:ae:b4:5f:f9:e6:f9:80:a5:98:
+                    ae:72:c5:75:b4:90:ce:d4:ff:54:b0:94:31:a4:f1:
+                    0d:5e:42:65:0c:8f:31:02:9e:18:e1:3d:94:49:fb:
+                    c2:77:64:c9:d2:59:44:92:35:34:07:40:08:2f:02:
+                    12:cd
+                Exponent: 65537 (0x10001)
+        X509v3 extensions:
+            X509v3 Basic Constraints: 
+                CA:FALSE
+            Netscape Cert Type: 
+                SSL Client
+            Netscape Comment: 
+                OpenSSL Generated Client Certificate
+            X509v3 Subject Key Identifier: 
+                B2:BE:77:18:21:C3:74:77:BC:EF:3E:92:21:67:9F:64:D2:D7:05:5D
+            X509v3 Authority Key Identifier: 
+                DirName:/C=PT/ST=Coimbra/L=Coimbra/O=UC/OU=DEI/CN=[Coimbra]:CA/emailAddress=coimbra@mail.com
+                serial:22:67:EE:BD:0A:C9:44:1A:FE:5E:4D:33:47:E4:93:6A:AD:E8:AD:41
+            X509v3 Extended Key Usage: 
+                TLS Web Client Authentication
+            X509v3 Key Usage: 
+                Digital Signature, Key Encipherment
+            Authority Information Access: 
+                OCSP - URI:http://ocsp_stipl1.pt:8081
+    Signature Algorithm: sha256WithRSAEncryption
+    Signature Value:
+        29:81:81:86:9a:ed:67:a4:95:f6:b7:ee:6b:ca:7d:d5:20:67:
+        b6:9e:75:3a:25:68:d7:29:a6:c2:4e:fb:1a:27:a6:c0:2c:87:
+        16:9c:0f:1d:32:47:68:99:61:cb:75:89:85:10:42:f7:b6:5f:
+        41:23:7a:34:6e:48:ea:9b:3f:8a:7a:f4:40:b3:a8:ea:be:9f:
+        d8:73:4e:89:38:a4:17:ca:90:d1:1e:d8:13:53:cf:7c:13:73:
+        d0:9d:38:06:cb:0a:72:79:7f:55:ad:e4:ce:f3:c4:39:97:45:
+        db:fa:6b:61:16:9d:53:ed:01:53:f8:46:34:bd:e0:41:fc:61:
+        2b:f2:cb:9d:5d:06:33:f0:28:36:a5:d7:04:09:7d:87:ba:3c:
+        ad:93:89:2b:54:c9:8e:67:16:93:8d:1a:ba:1b:72:08:6e:e3:
+        2b:b9:01:2a:38:70:15:1d:fa:ec:b5:d8:ed:ee:99:a1:ef:68:
+        0c:ee:52:1c:2c:98:ca:72:14:dc:d6:7f:05:60:a5:d6:6e:aa:
+        cd:c0:49:8e:8e:19:eb:08:ff:26:55:fe:de:a3:e3:22:cd:c8:
+        99:2d:38:da:a8:ca:92:a9:7a:a5:46:46:a0:dd:6b:3d:04:2b:
+        f5:f3:28:fa:c6:51:7a:ec:a5:d6:55:c6:cd:13:6a:2d:48:57:
+        f7:7a:b9:43
+-----BEGIN CERTIFICATE-----
+MIIE9jCCA96gAwIBAgIBBDANBgkqhkiG9w0BAQsFADCBhDELMAkGA1UEBhMCUFQx
+EDAOBgNVBAgMB0NvaW1icmExEDAOBgNVBAcMB0NvaW1icmExCzAJBgNVBAoMAlVD
+MQwwCgYDVQQLDANERUkxFTATBgNVBAMMDFtDb2ltYnJhXTpDQTEfMB0GCSqGSIb3
+DQEJARYQY29pbWJyYUBtYWlsLmNvbTAeFw0yMzAzMTEyMjUxNDVaFw0yNDAzMTAy
+MjUxNDVaMHMxCzAJBgNVBAYTAlBUMRAwDgYDVQQIDAdDb2ltYnJhMQswCQYDVQQK
+DAJVQzEMMAoGA1UECwwDREVJMRcwFQYDVQQDDA5bTGlzYm9hXTpMb2NhbDEeMBwG
+CSqGSIb3DQEJARYPbGlzYm9hQG1haWwuY29tMIIBIjANBgkqhkiG9w0BAQEFAAOC
+AQ8AMIIBCgKCAQEAzUgNnvGu07TT0VrK1zZvG/HMw3LDD0PKtFRmUVXGp8pfYLcK
+B0OO1YnehHC3EyK0WhN5Cuaj0UCYZ/1gFyiXyem/MDp3aKtqYJYtyAwZG9E18SuQ
+gbav8hGixpsgW5iKE73hK9Sn4NK78kSFVEgYon0/M2+XdL7yJ68I8mIzrPDB+SDl
+rTvBB8Z+HJfhDulERtKWW/RDyxxTBtQbGdtYDZZnJMyKujH9NT0YyySDPohWE+vb
+Kue8FYAFOjHLXTyjUls6ex7zDbWutF/55vmApZiucsV1tJDO1P9UsJQxpPENXkJl
+DI8xAp4Y4T2USfvCd2TJ0llEkjU0B0AILwISzQIDAQABo4IBgTCCAX0wCQYDVR0T
+BAIwADARBglghkgBhvhCAQEEBAMCB4AwMwYJYIZIAYb4QgENBCYWJE9wZW5TU0wg
+R2VuZXJhdGVkIENsaWVudCBDZXJ0aWZpY2F0ZTAdBgNVHQ4EFgQUsr53GCHDdHe8
+7z6SIWefZNLXBV0wga4GA1UdIwSBpjCBo6GBiqSBhzCBhDELMAkGA1UEBhMCUFQx
+EDAOBgNVBAgMB0NvaW1icmExEDAOBgNVBAcMB0NvaW1icmExCzAJBgNVBAoMAlVD
+MQwwCgYDVQQLDANERUkxFTATBgNVBAMMDFtDb2ltYnJhXTpDQTEfMB0GCSqGSIb3
+DQEJARYQY29pbWJyYUBtYWlsLmNvbYIUImfuvQrJRBr+Xk0zR+STaq3orUEwEwYD
+VR0lBAwwCgYIKwYBBQUHAwIwCwYDVR0PBAQDAgWgMDYGCCsGAQUFBwEBBCowKDAm
+BggrBgEFBQcwAYYaaHR0cDovL29jc3Bfc3RpcGwxLnB0OjgwODEwDQYJKoZIhvcN
+AQELBQADggEBACmBgYaa7Weklfa37mvKfdUgZ7aedTolaNcppsJO+xonpsAshxac
+Dx0yR2iZYct1iYUQQve2X0EjejRuSOqbP4p69ECzqOq+n9hzTok4pBfKkNEe2BNT
+z3wTc9CdOAbLCnJ5f1Wt5M7zxDmXRdv6a2EWnVPtAVP4RjS94EH8YSvyy51dBjPw
+KDal1wQJfYe6PK2TiStUyY5nFpONGrobcghu4yu5ASo4cBUd+uy12O3umaHvaAzu
+UhwsmMpyFNzWfwVgpdZuqs3ASY6OGesI/yZV/t6j4yLNyJktONqoypKpeqVGRqDd
+az0EK/XzKPrGUXrspdZVxs0Tai1IV/d6uUM=
+-----END CERTIFICATE-----
