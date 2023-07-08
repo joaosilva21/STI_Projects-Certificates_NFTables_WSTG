@@ -13,7 +13,11 @@ Configuration of CA and respective certificates to create openvpn communications
 ## To run this project:
 You will need 3 VMs to create the scenario presented. It's recommended to read the report (unfortunately for you is in portuguese .-.).
 You can simply put the files in your VMs like they are in this repository OR you can use our script "deploy.sh" :D<br>
-This script have some functionalities, like create keys, CSRs and certificates and distribute all the necessary files for all the VMs automatically! It can be used to organize the files in the right folders. You can see how the files must be organized on page 20 and 21 of the report.
+This script have some functionalities, like create keys, CSRs and certificates and distribute all the necessary files for all the VMs automatically! It can be used to organize the files in the right folders. You can see how the files must be organized on page 20 and 21 of the report.<br>
+To run the script use the following command:
+ ```shellscript
+  /home/stipl1:$ bash deploy.sh
+ ```
 
 ## Notes important to read
 - To understand what are and how the commands work see the statement and the report files
