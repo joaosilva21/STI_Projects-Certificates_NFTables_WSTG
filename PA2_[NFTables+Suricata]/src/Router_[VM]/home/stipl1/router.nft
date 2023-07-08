@@ -1,0 +1,134 @@
+flush ruleset
+
+define vpn-gw_dmz = {10.10.10.2}
+define network_dmz = {10.10.10.0/24}
+define dns_dmz = {10.10.10.3}
+define mail_dmz = {10.10.10.4}
+define smtp_dmz = {10.10.10.5}
+define www_dmz = {10.10.10.6}
+
+define network_internal-network = {10.20.20.0/24}
+define sti-ca_internal-network = {10.20.20.3}
+define datastore_internal-network = {10.20.20.6}
+
+define network_internet = {192.168.1.0/24}
+define dns2_internet = {192.168.1.2}
+define eden_internet = {192.168.1.3}
+
+define interface_dmz = {10.10.10.1}
+define interface_internal-network = {10.20.20.1}
+define interface_internet = {192.168.1.127}
+
+table inet router{
+        chain debug {
+                type filter hook prerouting priority -301;
+                ip protocol { tcp,udp } meta nftrace set 1;
+        }
+
+        chain input {
+                type filter hook input priority 0; policy drop;
+                queue;
+                ip saddr { $dns_dmz, $dns2_internet } tcp sport { domain } ct state new,established,related counter accept;
+                ip saddr { $dns_dmz, $dns2_internet } udp sport { domain } ct state new,established,related counter accept;             
+                ip saddr { $network_internal-network, $vpn-gw_dmz } tcp dport { ssh } ct state new,established,related counter accept;
+        }
+
+        chain output {
+                type filter hook output priority 0; policy drop;
+                queue;
+                ip daddr { $dns_dmz, $dns2_internet } tcp dport { domain } ct state new,established,related counter accept;
+                ip daddr { $dns_dmz, $dns2_internet } udp dport { domain } ct state new,established,related counter accept;
+        }
+
+        chain forward {
+                type filter hook forward priority 0; policy drop;
+                queue;
+                ct state related,established counter accept;
+
+                ip daddr { $dns_dmz } tcp dport { domain } ct state new,established,related counter accept;
+                ip daddr { $dns_dmz } udp dport { domain } ct state new,established,related counter accept;
+                ip saddr { $dns_dmz } tcp sport { domain } ct state new,established,related counter accept;
+                ip saddr { $dns_dmz } udp sport { domain } ct state new,established,related counter accept;
+
+                ip daddr { $dns_dmz } ip saddr { $dns2_internet } tcp dport { domain } ct state new,established,related counter accept;
+                ip daddr { $dns_dmz } ip saddr { $dns2_internet } udp dport { domain } ct state new,established,related counter accept;
+                ip daddr { $dns2_internet } ip saddr { $dns_dmz } tcp dport { domain } ct state new,established,related counter accept;
+                ip daddr { $dns2_internet } ip saddr { $dns_dmz } udp dport { domain } ct state new,established,related counter accept;
+
+                ip daddr { $smtp_dmz } tcp dport { smtp } ct state new,established,related counter accept;
+                ip daddr { $mail_dmz } tcp dport { pop3, imap } ct state new,established,related counter accept;
+                ip daddr { $www_dmz } tcp dport { http, https } ct state new,established,related counter accept;
+                ip daddr { $vpn-gw_dmz } tcp dport { openvpn } ct state new,established,related counter accept;
+                ip daddr { $vpn-gw_dmz } udp dport { openvpn } ct state new,established,related counter accept;
+
+                ip saddr { $network_internet } ip daddr { $datastore_internal-network } tcp dport { ssh } ct count over 2 counter drop;
+                ip saddr { $network_internet } ip daddr { $datastore_internal-network } tcp dport { ssh } ct state new,established,related counter accept;
+                ip saddr { $eden_internet } ip daddr { $sti-ca_internal-network } tcp dport { 2022 } ct state new,established,related counter accept;
+
+                ip saddr { $network_internal-network } ip daddr { $network_internet } tcp dport { ssh, domain, http, https } ct state new,established,related counter accept;
+                ip saddr { $network_internal-network } ip daddr { $network_internet } udp dport { domain } ct state new,established,related counter accept;
+                ip saddr { $network_internal-network } ip daddr { ocsp.pki.goog, pki.goog, crls.pki.goog, crl.pki.goog, assistant.google.com } tcp dport { http, https } ct state new,established,related counter accept;
+                ip saddr { $network_internal-network } ip daddr { ocsp.digicert.com, cacerts.digicert.com, www.digicert.com, crl3.digicert.com, crl4.digicert.com, alexa.amazon.com } tcp dport { http, https } ct state new,established,related counter accept;
+
+                #lh3.googleusercontent.com
+
+                #http.kali.org, ocsp.pki.goog, pki.goog, crls.pki.goog, alexa.amazon.com, assistant.google.com
+        }
+}
+
+table inet portknock {
+        chain debug{
+                type filter hook prerouting priority -301;
+                # meta nftrace set 1 # For everything
+                ip protocol {tcp} meta nftrace set 1 # Only for TCP and ICMP packets
+        }
+
+        set clients_ipv4 {
+                type ipv4_addr
+                flags timeout
+                counter
+        }
+
+        set candidates_ipv4 {
+                type ipv4_addr . inet_service
+                flags timeout
+                counter
+        }
+
+        chain input {
+                type filter hook input priority -10; policy accept;
+
+                iifname "lo" return
+
+                tcp dport 123 add @candidates_ipv4 {ip  saddr . 234 timeout 60s}
+                tcp dport 234 ip saddr . tcp dport @candidates_ipv4 add @candidates_ipv4 {ip saddr . 345 timeout 60s}
+                tcp dport 345 ip saddr . tcp dport @candidates_ipv4 add @candidates_ipv4 {ip saddr . 456 timeout 60s}
+                tcp dport 456 ip saddr . tcp dport @candidates_ipv4 add @candidates_ipv4 {ip saddr . 567 timeout 60s} 
+                tcp dport 567 ip saddr . tcp dport @candidates_ipv4 add @clients_ipv4 {ip saddr timeout 60s} log prefix "Successful portknock: "
+
+        #Allow SSH
+                tcp dport { ssh } ip  saddr @clients_ipv4 counter accept
+                tcp dport { ssh } ct state established,related counter accept
+
+        # Reject the remaining
+                tcp dport { ssh } counter reject with tcp reset
+        }
+}
+
+table nat {
+        chain postrouting {
+                type nat hook postrouting priority 100;
+                ip saddr { $network_internal-network } oif { eth2 } tcp dport { ssh, domain, http, https } ct state new,established,related snat to $interface_internet
+                ip saddr { $network_internal-network } oif { eth2 } udp dport { domain } ct state new,established,related snat to $interface_internet
+        }
+
+        chain prerouting {
+                type nat hook prerouting priority -100;
+                iif { eth2 } ip daddr { $interface_internet } tcp dport { 2021 } ct state new,established,related dnat to $datastore_internal-network:22;
+                ip saddr { $eden_internet } iif { eth2 } ip daddr { $interface_internet } tcp dport { 2022 } ct state new,established,related dnat to $sti-ca_internal-network:2022;
+        }
+}
+
+
+
+

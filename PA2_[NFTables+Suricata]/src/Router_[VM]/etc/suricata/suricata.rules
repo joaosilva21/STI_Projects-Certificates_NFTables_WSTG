@@ -1,0 +1,2 @@
+drop tcp any any -> any any (msg:"Possible SQL Injection with apostrophe and comments"; pcre:"/[a-z0-9 ]*('|")+[a-z0-9 =]*--/i"; sid:99999998; rev:1;)
+drop tcp any any -> any any (msg:"Possible DoS Attack with SYN scans"; flags:S; flow:stateless; threshold: type both, track by_dst, count 2500,seconds 5; sid:99999999; rev:1;)
